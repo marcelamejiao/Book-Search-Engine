@@ -27,6 +27,8 @@ const SavedBooks = () => {
     return <h2>LOADING...</h2>;
   }
 
+  console.log(data);
+
   return (
     <>
       <Jumbotron fluid className='text-light bg-dark'>
@@ -46,7 +48,7 @@ const SavedBooks = () => {
               <Card key={book.bookId} border='dark'>
                 {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
                 <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
+                  <Card.Title><a href={book.link} target="_blank" rel="noreferrer">{book.title}</a></Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
                   <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
